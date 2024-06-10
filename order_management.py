@@ -103,6 +103,9 @@ def get_open_orders(symbol, api_key, api_secret):
         return None
 
 def open_trailing_stop_order(symbol, side, quantity, callback_rate, api_key, api_secret, position_side, working_type):
+    # Cancel existing orders on the same side
+    cancel_existing_orders(symbol, side, api_key, api_secret)
+    
     """Open a trailing stop order."""
     print(f"Opening trailing stop order for {position_side}...")
     endpoint = '/fapi/v1/order'
@@ -129,6 +132,38 @@ def open_trailing_stop_order(symbol, side, quantity, callback_rate, api_key, api
     response = requests.post(base_url + endpoint, headers=headers, data=params)
     print(f"Trailing stop order response: {response.json()}")
     return response.json()
+
+def cancel_existing_orders(symbol, side, api_key, api_secret):
+    """Cancel existing open orders for a specific symbol and side."""
+    open_orders = get_open_orders(symbol, api_key, api_secret)
+    if open_orders is None:
+        print("Failed to get open orders.")
+        return
+    
+    for order in open_orders:
+        if order['side'] == side:
+            endpoint = '/fapi/v1/order'
+            timestamp = int(time.time() * 1000)
+            params = {
+                'symbol': symbol,
+                'orderId': order['orderId'],
+                'timestamp': timestamp
+            }
+
+            query_string = '&'.join([f"{key}={value}" for key, value in params.items()])
+            signature = create_signature(query_string, api_secret)
+            params['signature'] = signature
+
+            headers = {
+                'X-MBX-APIKEY': api_key
+            }
+
+            response = requests.delete(base_url + endpoint, headers=headers, params=params)
+            if response.status_code == 200:
+                print(f"Cancelled order {order['orderId']} on {symbol} side {side}")
+            else:
+                print(f"Failed to cancel order {order['orderId']} on {symbol} side {side}. Response: {response.text}")
+
 
 def open_stop_loss_order(symbol, side, quantity, stop_price, api_key, api_secret, position_side):
     """Open a stop loss order."""
