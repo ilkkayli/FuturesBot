@@ -2,7 +2,7 @@ USE AT YOUR OWN RISK!!!
 
 # Binance Futures Trading Bot
 
-This is a Binance Futures trading bot designed to automate the process of managing stop loss, trailing stop, and take profit orders based on predefined parameters. The bot continuously monitors open positions and ensures that appropriate risk management orders are in place.
+This is a Binance Futures trading bot designed to automate the process of managing stop loss, trailing stop, and take profit orders based on predefined parameters. The bot continuously monitors open positions and ensures that appropriate risk management orders are in place. The bot's strategy is to detect clear trend changes in the price and make investment decisions accordingly. The strategy can be adjusted through the parameters in the config.py file, where you can, for example, modify the take profit and stop loss levels according to your own risk tolerance. Similarly, you can adjust the leverage used.
 
 ## Features
 
