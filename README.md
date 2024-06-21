@@ -35,34 +35,42 @@ This is a Binance Futures trading bot designed to automate the process of managi
 
     Create a `config.py` file in the root directory of the project with the following content:
 
+    
+**# API Credentials**
     ```python
-# API Credentials
-api_key = 'YOUR_API_KEY'  # Binance API Key
-api_secret = 'YOUR_API_SECRET'  # Binance API Secret
+    api_key = 'YOUR_API_KEY'  # Binance API Key
+    api_secret = 'YOUR_API_SECRET'  # Binance API Secret
+    ```
 
-# Testnet URL
-base_url = 'https://testnet.binancefuture.com'  # URL for Binance Futures Testnet
+**# Testnet URL**
+    ```python
+    base_url = 'https://testnet.binancefuture.com'  # URL for Binance Futures Testnet
+    ```
 
-# Production URL (uncomment this line if you want to use the production environment)
-#base_url = 'https://fapi.binance.com'  # URL for Binance Futures Production
+**# Production URL (uncomment this line if you want to use the production environment)**
+    ```python
+    #base_url = 'https://fapi.binance.com'  # URL for Binance Futures Production
+    ```
 
-# Settings
-leverage = 10  # Leverage to use for the positions. Can vary between 1-125 depending on the symbol. Adjust this setting based on your risk management decision.
-margin_type = 'ISOLATED'  # Margin type: ISOLATED or CROSSED
+**# Settings**
+    ```python
+    leverage = 10  # Leverage to use for the positions. Can vary between 1-125 depending on the symbol. Adjust this setting based on your risk management decision.
+    margin_type = 'ISOLATED'  # Margin type: ISOLATED or CROSSED
+    ```
 
-# Cryptocurrency-specific settings. You can add multiple symbols using this template.
-crypto_settings = {
-    "BTCUSDT": {
-        "order_quantity": 0.0002,     # Order quantity in BTC
-        "callback_rate": 0.5,         # Callback rate percentage for trailing stop order
-        "callback_rate_close": 0.3,   # Callback rate percentage for closing trailing stop order
-        "working_type": "MARK_PRICE", # Working type can be 'MARK_PRICE' or 'LAST_PRICE'
-        "stop_loss_roi": -30,         # Stop loss return on investment percentage
-        "take_profit_roi": 40,        # Take profit return on investment percentage
-        "take_profit_enabled": False, # If True, set a take profit order instead of a trailing stop close order
+**# Cryptocurrency-specific settings. You can add multiple symbols using this template.**
+    ```python
+    crypto_settings = {
+        "BTCUSDT": {
+            "order_quantity": 0.0002,     # Order quantity in BTC
+            "callback_rate": 0.5,         # Callback rate percentage for trailing stop order
+            "callback_rate_close": 0.3,   # Callback rate percentage for closing trailing stop order
+            "working_type": "MARK_PRICE", # Working type can be 'MARK_PRICE' or 'LAST_PRICE'
+            "stop_loss_roi": -30,         # Stop loss return on investment percentage
+            "take_profit_roi": 40,        # Take profit return on investment percentage
+            "take_profit_enabled": False, # If True, set a take profit order instead of a trailing stop close order
+        }
     }
-}
-
     ```
 
 ## Usage
