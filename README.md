@@ -35,7 +35,7 @@ This is a Binance Futures trading bot designed to automate the process of managi
 
     Create a `config.py` file in the root directory of the project with the following content:
 
-    
+```bash    
 # API Credentials
 api_key = 'YOUR_API_KEY'  # Binance API Key
 api_secret = 'YOUR_API_SECRET'  # Binance API Secret
@@ -63,6 +63,7 @@ crypto_settings = {
         "take_profit_enabled": False, # If True, set a take profit order instead of a trailing stop close order
     }
 }
+```
 
 ## Usage
 
