@@ -37,29 +37,29 @@ This is a Binance Futures trading bot designed to automate the process of managi
 
     
 **# API Credentials**
-    ```python
+    ```bash
     api_key = 'YOUR_API_KEY'  # Binance API Key
     api_secret = 'YOUR_API_SECRET'  # Binance API Secret
     ```
 
 **# Testnet URL**
-    ```python
+    ```bash
     base_url = 'https://testnet.binancefuture.com'  # URL for Binance Futures Testnet
     ```
 
 **# Production URL (uncomment this line if you want to use the production environment)**
-    ```python
+    ```bash
     #base_url = 'https://fapi.binance.com'  # URL for Binance Futures Production
     ```
 
 **# Settings**
-    ```python
+    ```bash
     leverage = 10  # Leverage to use for the positions. Can vary between 1-125 depending on the symbol. Adjust this setting based on your risk management decision.
     margin_type = 'ISOLATED'  # Margin type: ISOLATED or CROSSED
     ```
 
 **# Cryptocurrency-specific settings. You can add multiple symbols using this template.**
-    ```python
+    ```bash
     crypto_settings = {
         "BTCUSDT": {
             "order_quantity": 0.0002,     # Order quantity in BTC
