@@ -36,14 +36,17 @@ This is a Binance Futures trading bot designed to automate the process of managi
     Create a `config.py` file in the root directory of the project with the following content:
 
     
-# API Credentials
-api_key = 'YOUR_API_KEY'  # Binance API Key
-api_secret = 'YOUR_API_SECRET'  # Binance API Secret
+**API Credentials**
 
-# Testnet URL
+    ```bash
+    api_key = 'YOUR_API_KEY'  # Binance API Key
+    api_secret = 'YOUR_API_SECRET'  # Binance API Secret
+     ```
+
+## Testnet URL
 base_url = 'https://testnet.binancefuture.com'  # URL for Binance Futures Testnet
 
-# Production URL (uncomment this line if you want to use the production environment)
+## Production URL (uncomment this line if you want to use the production environment)
 # base_url = 'https://fapi.binance.com'  # URL for Binance Futures Production
 
 # Settings
