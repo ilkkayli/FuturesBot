@@ -87,7 +87,7 @@ def open_stop_loss_order(symbol, side, quantity, stop_price, api_key, api_secret
         'side': side,
         'type': 'STOP_MARKET',
         'quantity': round(quantity, 3),  # Round to 3 decimal places
-        'stopPrice': round(stop_price, 2),  # Round to 2 decimal places
+        'stopPrice': round(stop_price, 7),  # Round to 7 decimal places
         'timestamp': timestamp,
         'positionSide': position_side,
         'workingType': working_type
@@ -141,7 +141,7 @@ def open_take_profit_order(symbol, side, quantity, take_profit_price, api_key, a
         'side': side,
         'type': 'TAKE_PROFIT_MARKET',
         'quantity': round(quantity, 3),  # Round to 3 decimal places
-        'stopPrice': round(take_profit_price, 2),  # Round to 2 decimal places
+        'stopPrice': round(take_profit_price, 7),  # Round to 2 decimal places
         'timestamp': timestamp,
         'positionSide': position_side,
         'workingType': working_type
